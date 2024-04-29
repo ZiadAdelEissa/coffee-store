@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './products.css'
+import ClipLoader from "react-spinners/ClipLoader";
 
 export default function Products(props) {
   // const {proudects} = props
