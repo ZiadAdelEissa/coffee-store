@@ -2,21 +2,18 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import './proudects.css'
-import ClipLoader from "react-spinners/ClipLoader";
+import './products.css'
 
-export default function Proudects(props) {
+export default function Products(props) {
   // const {proudects} = props
 const Urlapi = ('https://fake-coffee-api.vercel.app/api')
-const [proudect, setProudect] = useState([])
-const [loading,setloading] = useState(false)
-
-
-const getproudect = () => {
+const [products, setProducts] = useState([])
+const [loading, setloading] = useState(false)
+const getProducts = () => {
   fetch(Urlapi)
    .then(res => res.json())
    .then(data => {
-      setProudect(data)
+      setProducts(data)
     })
   //  .catch(err => console.log(err))
 }
@@ -26,7 +23,7 @@ useEffect(() => {
     setloading(false)
   },8000
 )
-  getproudect()
+  getProducts()
 }, [])
     
   return (
@@ -42,10 +39,9 @@ useEffect(() => {
       />
         :
     <div className='row max="0" row-cols-lg-4 cols-sm-1 cols-xxl-4 '>
-        {proudect.map(post =>(
+        {products.map(post =>(
         <div className='col ' key={post.id}>
     <div className="card">
-        
         <img src={post.image_url} className='img' alt='...' />
         <div className='card-body'>
             <h1 className='card-title'>{post.name}</h1>
@@ -53,7 +49,7 @@ useEffect(() => {
             <p className="card-info">{post.description}</p>
             <Link
             className="card-btn"
-            to={`./Details/${post.id}`}
+            to={`./product/${post.id}`}
             onClick={() => {
               window.scrollTo({
                 top: 0,
