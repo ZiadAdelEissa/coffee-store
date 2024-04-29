@@ -5,14 +5,14 @@ import './details.css'
 
 export default function Details() {
  
-  const apiUrl = "https://fakestoreapi.com/products";
-  const [proudect,setproudect] = useState({});
+  const apiUrl = "https://fake-coffee-api.vercel.app/api";
+  const [product,setProduct] = useState([]);
   // to restore productId in params
   const params = useParams();
   useEffect(() => {
-    fetch(`${apiUrl}/${params.proudectId}`)
+    fetch(`${apiUrl}/${params.productId}`)
       .then((res) => res.json())
-      .then((proudect) => setproudect(proudect));
+      .then((product) => setProduct(product[0]));
   }, []);
   return (
     <>
@@ -21,25 +21,25 @@ export default function Details() {
           <h1>Product Details</h1>
           <div className="row pt-5">
             <div className="content col-lg-6">
-              <h2>{proudect.title}</h2>
+              <h2>{product.name}</h2>
               <p>
                 <span>Description: </span>
-                {proudect.description}
+                {product.description}
               </p>
               <p>
-                <span>Category: </span>
-                {proudect.category}
+                <span>Region: </span>
+                {product.region}
               </p>
               <p>
                 <span>Price: </span>
-                {proudect.price} EGP
+                {product.price} EGP
               </p>
               <div>
                 <button className="d-none d-md-block">Add To Cart</button>
               </div>
             </div>
             <div className="image col-lg-6">
-              <img src={proudect.image} alt={proudect.title} />
+              <img src={product.image_url} alt={product.title} />
             </div>
             <button className="d-block d-md-none">Add To Cart</button>
           </div>

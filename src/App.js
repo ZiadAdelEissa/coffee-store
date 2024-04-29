@@ -7,6 +7,7 @@ import About from './components/About/About';
 import Footer from './components/Footer/Footer';
 import Contact from './components/Contact/Contact';
 import Products from './components/Products/Products';
+import Details from './components/details/Details';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
     } />
      <Route path="/about" element={<About />} />
      <Route path="/contact" element={<Contact />} />
+     <Route path="/product/:productId" element={<Details/>} />
      {/* <Route path="/" element={} /> */}
    </Routes>
    <Footer />
