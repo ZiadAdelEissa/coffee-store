@@ -12,7 +12,7 @@ export default function Footer() {
             <div className='linkss col-md-4 col-lg-4'>
                <Link to='/'>Home</Link>
                <Link to='/'>About</Link>
-               <Link to='/'>Proudect</Link>
+               <Link to='/'>Products</Link>
                <Link to='/'>Contact</Link>
             </div>
             <div className=' pref col-md-4 col-lg-4'>
