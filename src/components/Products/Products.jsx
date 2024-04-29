@@ -2,29 +2,29 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import './proudects.css'
+import './products.css'
 
-export default function Proudects(props) {
+export default function Products(props) {
   // const {proudects} = props
 const Urlapi = ('https://fake-coffee-api.vercel.app/api')
-const [proudect, setProudect] = useState([])
-const getproudect = () => {
+const [products, setProducts] = useState([])
+const getProducts = () => {
   fetch(Urlapi)
    .then(res => res.json())
    .then(data => {
-      setProudect(data)
+      setProducts(data)
     })
   //  .catch(err => console.log(err))
 }
 useEffect(() => {
-  getproudect()
+  getProducts()
 }, [])
     
   return (
     <>
     <div className='container '>
     <div className='row max="0" row-cols-lg-4 cols-sm-1 cols-xxl-4 '>
-        {proudect.map(post =>(
+        {products.map(post =>(
         <div className='col ' key={post.id}>
     <div className="card">
         
